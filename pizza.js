@@ -46,6 +46,10 @@ const app = Vue.createApp({
           id: "Type3",
           name: "Type3",
         },
+        {
+          id: "Type4",
+          name: "Type4",
+        },
       ],
     };
   },
