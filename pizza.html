@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Dough Calculator</title>
+    <link rel="stylesheet" href="pizza.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="pizza.js" defer></script>
+  </head>
+  <body>
+    <section id="pizza">
+      <h1>Pizza Dough Calculator</h1>
+      <form>
+        <label for="pizzaStyle">Pizza style</label>
+        <select v-model="ingredients.pizzaStyle">
+          <option
+            v-for="pizzaStyleOption in pizzaStyleOptions"
+            :key="pizzaStyleOption.id"
+            :value="pizzaStyleOption.id"
+          >
+            {{ pizzaStyleOption.name}}
+          </option>
+        </select>
+        <label for="pizzaNumber">Number of pizzas</label>
+        <input type="number" v-model="ingredients.pizzaNumber" />
+        <label for="pizzaSize">Size of pizza (gr) ({{sizeP}})</label>
+        <input type="number" v-model="ingredients.pizzaSize" />
+        <label for="yeastType">Type of yeast</label>
+        <select v-model="ingredients.yeastType">
+          <option
+            v-for="yeastTypeOption in yeastTypeOptions"
+            :key="yeastTypeOption.id"
+            :value="yeastTypeOption.id"
+          >
+            {{yeastTypeOption.name}}
+          </option>
+        </select>
+        <label for="water">Amount of water (%) </label>
+        <input type="number" v-model="ingredients.water" />
+        <button type="button" class="button" @click="isValid">Calculate</button>
+      </form>
+      <br />
+      <section class="recipe" v-if="userValidity">
+        <div>Flour: {{calculatedFlour}} gr</div>
+        <div>Water: {{Water}} gr</div>
+        <div>Salt: {{salt}} gr</div>
+        <div>Fresh yeast: {{yeast}} gr</div>
+        <section class="dough">
+          <div class="content">
+            Dough Per Pizza <br />
+            <br />
+            {{doughPer}}
+          </div>
+          <div class="content">
+            Total Dough <br />
+            <br />
+            {{totalD}}
+          </div>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
