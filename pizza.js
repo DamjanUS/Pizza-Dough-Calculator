@@ -79,6 +79,19 @@ const app = Vue.createApp({
       }
     },
 
+    emptySpace() {
+      if (
+        this.ingredients.pizzaSize === "" ||
+        this.ingredients.pizzaNumber === "" ||
+        this.ingredients.water === ""
+      ) {
+        this.userValidity = false;
+        alert("Fill in all the inputs");
+      } else {
+        this.userValidity = true;
+      }
+    },
+
     selectedStyle() {
       if (this.ingredients.pizzaStyle) {
         return this.pizzaStyleOptions.find(

@@ -38,7 +38,9 @@
         </select>
         <label for="water">Amount of water (%) </label>
         <input type="number" v-model="ingredients.water" />
-        <button type="button" class="button" @click="isValid">Calculate</button>
+        <button type="button" class="button" @click="isValid && emptySpace">
+          Calculate
+        </button>
       </form>
       <br />
       <section class="recipe" v-if="userValidity">
