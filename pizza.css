@@ -82,16 +82,16 @@ label {
   border-top: 1px solid #000;
 }
 
-@media only screen and (max-width: 768px) {
-  select {
-    width: 38%;
-  }
-}
-
 form {
   text-align: center;
 }
 
 .content {
   margin: 0 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  select {
+    width: 38%;
+  }
 }

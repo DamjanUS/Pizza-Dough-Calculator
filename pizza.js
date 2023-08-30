@@ -80,16 +80,11 @@ const app = Vue.createApp({
     },
 
     emptySpace() {
-      if (
+      return (
         this.ingredients.pizzaSize === "" ||
         this.ingredients.pizzaNumber === "" ||
         this.ingredients.water === ""
-      ) {
-        this.userValidity = false;
-        alert("Fill in all the inputs");
-      } else {
-        this.userValidity = true;
-      }
+      );
     },
 
     selectedStyle() {
