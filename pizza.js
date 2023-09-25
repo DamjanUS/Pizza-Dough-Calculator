@@ -38,18 +38,6 @@ const app = Vue.createApp({
           id: "Instant Dry Yeast",
           name: "Instant Dry Yeast",
         },
-        {
-          id: "Type2",
-          name: "Type2",
-        },
-        {
-          id: "Type3",
-          name: "Type3",
-        },
-        {
-          id: "Type4",
-          name: "Type4",
-        },
       ],
     };
   },
