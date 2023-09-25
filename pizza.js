@@ -26,11 +26,14 @@ const app = Vue.createApp({
           id: "New York",
           name: "New York",
           thicknessFactor: 0.59,
+          oilToFlourRatio: 0.03,
+          sugarToFlourRatio: 0.01,
         },
         {
           id: "Tonda Romana",
           name: "Tonda Romana",
           thicknessFactor: 0.6,
+          oilToFlourRatio: 0.061,
         },
       ],
       yeastTypeOptions: [
@@ -112,6 +115,24 @@ const app = Vue.createApp({
       const flourToSaltRatio = 0.025;
       this.recipe.salt = this.calculatedFlour * flourToSaltRatio;
       return this.recipe.salt.toFixed(1);
+    },
+    oil() {
+      const flour = parseFloat(this.calculatedFlour);
+      const selectedStyle = this.selectedStyle;
+
+      if (!isNaN(flour) && selectedStyle) {
+        return flour * selectedStyle.oilToFlourRatio;
+      }
+      return 0;
+    },
+    sugar() {
+      const flour = parseFloat(this.calculatedFlour);
+      const selectedStyle = this.selectedStyle;
+
+      if (!isNaN(flour) && selectedStyle) {
+        return flour * selectedStyle.sugarToFlourRatio;
+      }
+      return 0;
     },
     doughPer() {
       return (this.doughPerPizza = this.ingredients.pizzaSize);

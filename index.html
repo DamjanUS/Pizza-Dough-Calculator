@@ -154,6 +154,16 @@
         <div>Вода: {{Water}} ml</div>
         <div>Сол: {{salt}} gr</div>
         <div>Свеж квасец: {{yeast}} gr</div>
+        <div
+          v-if="selectedStyle && selectedStyle.oilToFlourRatio !== undefined"
+        >
+          Масло: {{oil}} gr
+        </div>
+        <div
+          v-if="selectedStyle && selectedStyle.sugarToFlourRatio !== undefined"
+        >
+          Шеќер: {{sugar}} gr
+        </div>
         <section class="dough">
           <div class="content">
             Тесто за една пица <br />
