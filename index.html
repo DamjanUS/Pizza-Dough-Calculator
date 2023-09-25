@@ -4,9 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizza Dough Calculator</title>
-    <link rel="stylesheet" href="pizza.css" />
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="pizza.js" defer></script>
+    <style>
+      h1 {
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      input {
+        background: #fff;
+        color: #000;
+        width: 35%;
+        height: 35px;
+        border: 1px solid #000;
+        border-radius: 3px;
+        padding-left: 10px;
+        margin-bottom: 25px;
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+      }
+
+      select {
+        background: #fff;
+        color: #000;
+        width: 35.7%;
+        height: 40px;
+        border: 1px solid #000;
+        border-radius: 3px;
+        padding-left: 10px;
+        margin-bottom: 25px;
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+      }
+
+      label {
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+        display: block;
+      }
+
+      .button {
+        --webkit-appearance: none;
+        border: 0;
+        background: #da3a3a !important;
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        line-height: 45px;
+        color: #fff;
+        text-decoration: none;
+        padding: 0 50px;
+        width: auto;
+        margin: auto;
+      }
+
+      .recipe {
+        grid-area: table;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        font-family: Courier New, Courier, Lucida Sans Typewriter,
+          Lucida Typewriter, monospace;
+        padding-left: 10px;
+        margin-top: 50px;
+        display: grid;
+        grid-row-gap: 25px;
+        text-align: center;
+      }
+
+      .dough {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 25px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #000;
+      }
+
+      form {
+        text-align: center;
+      }
+
+      .content {
+        margin: 0 3rem;
+      }
+
+      @media only screen and (max-width: 768px) {
+        select {
+          width: 37.5%;
+        }
+      }
+    </style>
   </head>
   <body>
     <section id="pizza">

@@ -5,11 +5,11 @@ const app = Vue.createApp({
       doughPerPizza: "",
       totalDough: "",
       ingredients: {
-        pizzaNumber: "",
-        pizzaSize: "",
+        pizzaNumber: "4",
+        pizzaSize: "250",
         pizzaStyle: "Napolitan",
-        yeastType: "Fresh Yeast",
-        water: "",
+        yeastType: "Instant Dry Yeast",
+        water: "60",
       },
       recipe: {
         water: "",
@@ -28,15 +28,15 @@ const app = Vue.createApp({
           thicknessFactor: 0.59,
         },
         {
-          id: "Canoto",
-          name: "Canoto",
+          id: "Tonda Romana",
+          name: "Tonda Romana",
           thicknessFactor: 0.6,
         },
       ],
       yeastTypeOptions: [
         {
-          id: "Fresh Yeast",
-          name: "Fresh Yeast",
+          id: "Instant Dry Yeast",
+          name: "Instant Dry Yeast",
         },
         {
           id: "Type2",
