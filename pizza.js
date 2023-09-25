@@ -121,7 +121,7 @@ const app = Vue.createApp({
       const selectedStyle = this.selectedStyle;
 
       if (!isNaN(flour) && selectedStyle) {
-        return flour * selectedStyle.oilToFlourRatio;
+        return flour * selectedStyle.oilToFlourRatiotoFixed(2);
       }
       return 0;
     },
@@ -130,7 +130,7 @@ const app = Vue.createApp({
       const selectedStyle = this.selectedStyle;
 
       if (!isNaN(flour) && selectedStyle) {
-        return flour * selectedStyle.sugarToFlourRatio;
+        return flour * selectedStyle.sugarToFlourRatio.toFixed(2);
       }
       return 0;
     },
