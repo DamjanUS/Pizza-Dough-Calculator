@@ -44,6 +44,7 @@
         font-family: Courier New, Courier, Lucida Sans Typewriter,
           Lucida Typewriter, monospace;
         display: block;
+        padding-bottom: 10px;
       }
 
       .button {
@@ -101,16 +102,18 @@
 
       @media only screen and (max-width: 768px) {
         select {
-          width: 38%;
+          width: 49%;
+        }
+        input {
+          width: 44%;
         }
       }
     </style>
   </head>
   <body>
     <section id="pizza">
-      <h1>Pizza Dough Calculator</h1>
       <form>
-        <label for="pizzaStyle">Pizza style</label>
+        <label for="pizzaStyle">Стил на пица</label>
         <select v-model="ingredients.pizzaStyle">
           <option
             v-for="pizzaStyleOption in pizzaStyleOptions"
@@ -120,11 +123,13 @@
             {{ pizzaStyleOption.name}}
           </option>
         </select>
-        <label for="pizzaNumber">Number of pizzas</label>
+        <label for="pizzaNumber">Број на пици</label>
         <input type="number" v-model="ingredients.pizzaNumber" />
-        <label for="pizzaSize">Size of pizza (gr) ({{sizeP}})</label>
+        <label for="pizzaSize"
+          >Големина на пица (gr) мала средна голема ({{sizeP}})</label
+        >
         <input type="number" v-model="ingredients.pizzaSize" />
-        <label for="yeastType">Type of yeast</label>
+        <label for="yeastType">Тип на квасец</label>
         <select v-model="ingredients.yeastType">
           <option
             v-for="yeastTypeOption in yeastTypeOptions"
@@ -134,7 +139,7 @@
             {{yeastTypeOption.name}}
           </option>
         </select>
-        <label for="water">Amount of water (%) </label>
+        <label for="water">Количина на вода (%)</label>
         <input type="number" v-model="ingredients.water" />
         <button
           type="button"
@@ -142,25 +147,25 @@
           :disabled="emptySpace "
           @click="isValid"
         >
-          Calculate
+          Пресметај
         </button>
       </form>
       <br />
       <section class="recipe" v-if="userValidity">
-        <div>Flour: {{calculatedFlour}} gr</div>
-        <div>Water: {{Water}} ml</div>
-        <div>Salt: {{salt}} gr</div>
-        <div>Fresh yeast: {{yeast}} gr</div>
+        <div>Брашно: {{calculatedFlour}} gr</div>
+        <div>Вода: {{Water}} ml</div>
+        <div>Сол: {{salt}} gr</div>
+        <div>Свеж квасец: {{yeast}} gr</div>
         <section class="dough">
           <div class="content">
-            Dough Per Pizza <br />
+            Тесто за една пица <br />
             <br />
-            {{doughPer}}
+            {{doughPer}} gr
           </div>
           <div class="content">
-            Total Dough <br />
+            Вкупно тесто <br />
             <br />
-            {{totalD}}
+            {{totalD}} gr
           </div>
         </section>
       </section>

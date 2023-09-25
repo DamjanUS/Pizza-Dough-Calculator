@@ -36,11 +36,11 @@ const app = Vue.createApp({
       yeastTypeOptions: [
         {
           id: "Instant Dry Yeast",
-          name: "Instant Dry Yeast",
+          name: "Инстант Сув Квасец",
         },
         {
           id: "Fresh Yeast",
-          name: "Fresh Yeast",
+          name: "Свеж квасец",
         },
       ],
     };
@@ -89,14 +89,14 @@ const app = Vue.createApp({
     },
     sizeP() {
       if (this.ingredients.pizzaSize > 0 && this.ingredients.pizzaSize <= 229) {
-        return "small";
+        return "мала";
       } else if (
         this.ingredients.pizzaSize >= 230 &&
         this.ingredients.pizzaSize <= 299
       ) {
-        return "medium";
+        return "средна";
       } else {
-        return "large";
+        return "голема";
       }
     },
     Water() {
