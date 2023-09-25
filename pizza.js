@@ -121,7 +121,7 @@ const app = Vue.createApp({
       const selectedStyle = this.selectedStyle;
 
       if (!isNaN(flour) && selectedStyle) {
-        return flour * selectedStyle.oilToFlourRatiotoFixed(2);
+        return flour * selectedStyle.oilToFlourRatio.toFixed(2);
       }
       return 0;
     },
