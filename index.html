@@ -102,7 +102,7 @@
 
       @media only screen and (max-width: 768px) {
         select {
-          width: 50%;
+          width: 53%;
         }
         input {
           width: 49%;
@@ -125,9 +125,7 @@
         </select>
         <label for="pizzaNumber">Број на пици</label>
         <input type="number" v-model="ingredients.pizzaNumber" />
-        <label for="pizzaSize"
-          >Големина на пица (gr) мала средна голема ({{sizeP}})</label
-        >
+        <label for="pizzaSize">Големина на пица (gr)({{sizeP}})</label>
         <input type="number" v-model="ingredients.pizzaSize" />
         <label for="yeastType">Тип на квасец</label>
         <select v-model="ingredients.yeastType">
