@@ -70,7 +70,10 @@ const app = Vue.createApp({
 
       if (!isNaN(pizzaNumber) && !isNaN(pizzaSize) && this.selectedStyle) {
         const thicknessFactor = this.selectedStyle.thicknessFactor;
-        return pizzaNumber * pizzaSize * thicknessFactor;
+        const flour = pizzaNumber * pizzaSize * thicknessFactor;
+        const flourString = flour.toFixed(1);
+        const formattedflour = flourString.replace(/\.0$/, "");
+        return formattedflour;
       }
     },
 
@@ -103,25 +106,37 @@ const app = Vue.createApp({
       }
     },
     Water() {
-      return (this.recipe.water =
-        (this.calculatedFlour * this.ingredients.water) / 100);
+      let water = this.recipe.water;
+      water = (this.calculatedFlour * this.ingredients.water) / 100;
+      const waterString = water.toFixed(1);
+      const formattedwater = waterString.replace(/\.0$/, "");
+      return formattedwater;
     },
     yeast() {
-      const yeastToFlourRatio = 0.0021739130434783;
-      this.recipe.yeast = this.calculatedFlour * yeastToFlourRatio;
-      return this.recipe.yeast.toFixed(1);
+      const yeastToFlourRatio = 0.00333;
+      let yeast = this.recipe.yeast;
+      yeast = this.calculatedFlour * yeastToFlourRatio;
+      const yeastString = yeast.toFixed(1);
+      const formattedyeast = yeastString.replace(/\.0$/, "");
+      return formattedyeast;
     },
     salt() {
-      const flourToSaltRatio = 0.025;
-      this.recipe.salt = this.calculatedFlour * flourToSaltRatio;
-      return this.recipe.salt.toFixed(1);
+      const flourToSaltRatio = 0.02;
+      let salt = this.recipe.salt;
+      salt = this.calculatedFlour * flourToSaltRatio;
+      const saltString = salt.toFixed(1);
+      const formattedsalt = saltString.replace(/\.0$/, "");
+      return formattedsalt;
     },
     oil() {
       const flour = parseFloat(this.calculatedFlour);
       const selectedStyle = this.selectedStyle;
 
       if (!isNaN(flour) && selectedStyle) {
-        return flour * selectedStyle.oilToFlourRatio.toFixed(2);
+        const oil = flour * selectedStyle.oilToFlourRatio;
+        const oilString = oil.toFixed(1);
+        const formattedOil = oilString.replace(/\.0$/, "");
+        return formattedOil;
       }
       return 0;
     },
@@ -130,7 +145,10 @@ const app = Vue.createApp({
       const selectedStyle = this.selectedStyle;
 
       if (!isNaN(flour) && selectedStyle) {
-        return flour * selectedStyle.sugarToFlourRatio.toFixed(2);
+        const sugar = flour * selectedStyle.sugarToFlourRatio;
+        const sugarString = sugar.toFixed(1);
+        const formattedsugar = sugarString.replace(/\.0$/, "");
+        return formattedsugar;
       }
       return 0;
     },
