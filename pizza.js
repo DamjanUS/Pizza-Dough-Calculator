@@ -20,19 +20,19 @@ const app = Vue.createApp({
         {
           id: "Napolitan",
           name: "Napolitan",
-          thicknessFactor: 0.61,
+          thicknessFactor: 0.613,
         },
         {
           id: "New York",
           name: "New York",
-          thicknessFactor: 0.6,
+          thicknessFactor: 0.613,
           oilToFlourRatio: 0.03,
           sugarToFlourRatio: 0.01,
         },
         {
           id: "Tonda Romana",
           name: "Tonda Romana",
-          thicknessFactor: 0.59,
+          thicknessFactor: 0.613,
           oilToFlourRatio: 0.061,
         },
       ],
@@ -113,7 +113,7 @@ const app = Vue.createApp({
       return formattedwater;
     },
     yeast() {
-      const yeastToFlourRatio = 0.00217;
+      const yeastToFlourRatio = 0.002;
       let yeast = this.recipe.yeast;
       yeast = this.calculatedFlour * yeastToFlourRatio;
       const yeastString = yeast.toFixed(1);
@@ -121,7 +121,7 @@ const app = Vue.createApp({
       return formattedyeast;
     },
     salt() {
-      const flourToSaltRatio = 0.02;
+      const flourToSaltRatio = 0.03;
       let salt = this.recipe.salt;
       salt = this.calculatedFlour * flourToSaltRatio;
       const saltString = salt.toFixed(1);
