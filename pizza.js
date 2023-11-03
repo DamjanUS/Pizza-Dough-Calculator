@@ -20,7 +20,7 @@ const app = Vue.createApp({
         {
           id: "Napolitan",
           name: "Napolitan",
-          thicknessFactor: 0.617,
+          thicknessFactor: 0.613,
         },
         {
           id: "New York",
@@ -121,7 +121,7 @@ const app = Vue.createApp({
       return formattedyeast;
     },
     salt() {
-      const flourToSaltRatio = 0.02;
+      const flourToSaltRatio = 0.03;
       let salt = this.recipe.salt;
       salt = this.calculatedFlour * flourToSaltRatio;
       const saltString = salt.toFixed(1);
