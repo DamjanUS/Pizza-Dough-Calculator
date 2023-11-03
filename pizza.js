@@ -113,7 +113,7 @@ const app = Vue.createApp({
       return formattedwater;
     },
     yeast() {
-      const yeastToFlourRatio = 0.002;
+      const yeastToFlourRatio = 0.0013;
       let yeast = this.recipe.yeast;
       yeast = this.calculatedFlour * yeastToFlourRatio;
       const yeastString = yeast.toFixed(1);
