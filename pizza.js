@@ -21,29 +21,34 @@ const app = Vue.createApp({
           id: "Napolitan",
           name: "Napolitan",
           thicknessFactor: 0.613,
+          flourToSaltRatio: 0.03,
         },
         {
           id: "New York",
           name: "New York",
-          thicknessFactor: 0.613,
+          thicknessFactor: 0.602,
           oilToFlourRatio: 0.03,
           sugarToFlourRatio: 0.01,
+          flourToSaltRatio: 0.02,
         },
         {
           id: "Tonda Romana",
           name: "Tonda Romana",
-          thicknessFactor: 0.613,
-          oilToFlourRatio: 0.061,
+          thicknessFactor: 0.593,
+          oilToFlourRatio: 0.06,
+          flourToSaltRatio: 0.025,
         },
       ],
       yeastTypeOptions: [
         {
           id: "Instant Dry Yeast",
           name: "Инстант Сув Квасец",
+          yeastToFlourRatio: 0.0007,
         },
         {
           id: "Fresh Yeast",
           name: "Свеж квасец",
+          yeastToFlourRatio: 0.0019,
         },
       ],
     };
@@ -93,6 +98,13 @@ const app = Vue.createApp({
         );
       }
     },
+    selectedYeastType() {
+      if (this.ingredients.yeastType) {
+        return this.yeastTypeOptions.find(
+          (yeastTypeOption) => yeastTypeOption.id === this.ingredients.yeastType
+        );
+      }
+    },
     sizeP() {
       if (this.ingredients.pizzaSize > 0 && this.ingredients.pizzaSize <= 229) {
         return "мала";
@@ -113,17 +125,24 @@ const app = Vue.createApp({
       return formattedwater;
     },
     yeast() {
-      const yeastToFlourRatio = 0.0013;
-      let yeast = this.recipe.yeast;
-      yeast = this.calculatedFlour * yeastToFlourRatio;
-      const yeastString = yeast.toFixed(1);
-      const formattedyeast = yeastString.replace(/\.0$/, "");
-      return formattedyeast;
+      const yeastType = this.selectedYeastType;
+      const flour = this.calculatedFlour * yeastType.yeastToFlourRatio;
+      this.$nextTick(() => {
+        if (this.selectedStyle.id === "New York") {
+          if (yeastType.id === "Fresh Yeast") {
+            yeastType.yeastToFlourRatio = 0.0076;
+          } else if (yeastType.id === "Instant Dry Yeast") {
+            yeastType.yeastToFlourRatio = 0.0025;
+          }
+        }
+      });
+      const yeastString = flour.toFixed(1);
+      const formattedYeast = yeastString.replace(/\.0$/, "");
+      return formattedYeast;
     },
     salt() {
-      const flourToSaltRatio = 0.03;
       let salt = this.recipe.salt;
-      salt = this.calculatedFlour * flourToSaltRatio;
+      salt = this.calculatedFlour * this.selectedStyle.flourToSaltRatio;
       const saltString = salt.toFixed(1);
       const formattedsalt = saltString.replace(/\.0$/, "");
       return formattedsalt;
