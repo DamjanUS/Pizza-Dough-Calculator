@@ -155,7 +155,10 @@
         <div>Брашно: {{calculatedFlour}} gr</div>
         <div>Вода: {{Water}} gr</div>
         <div>Сол: {{salt}} gr</div>
-        <div>Свеж квасец: {{yeast}} gr</div>
+        <div v-if="selectedYeastType.id === `Fresh Yeast` ">
+          Свеж квасец: {{yeast}} gr
+        </div>
+        <div v-else>Инстант сув квасец: {{yeast}} gr</div>
         <div
           v-if="selectedStyle && selectedStyle.oilToFlourRatio !== undefined"
         >
