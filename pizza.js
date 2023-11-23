@@ -134,6 +134,12 @@ const app = Vue.createApp({
           } else if (yeastType.id === "Instant Dry Yeast") {
             yeastType.yeastToFlourRatio = 0.0025;
           }
+        } else if (this.selectedStyle.id === "Napolitan" || "Tonda Romana") {
+          if (yeastType.id === "Fresh Yeast") {
+            yeastType.yeastToFlourRatio = 0.0019;
+          } else if (yeastType.id === "Instant Dry Yeast") {
+            yeastType.yeastToFlourRatio = 0.0007;
+          }
         }
       });
       const yeastString = flour.toFixed(1);
