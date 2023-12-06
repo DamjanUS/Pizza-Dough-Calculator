@@ -80,9 +80,7 @@ const app = Vue.createApp({
         if (!isNaN(water)) {
           const flour =
             pizzaNumber * pizzaSize * thicknessFactor - (water - 60) * 3.5;
-
-          const minFlour = 400;
-          const adjustedFlour = Math.max(flour, minFlour);
+          const adjustedFlour = Math.max(flour, 0);
 
           const flourString = adjustedFlour.toFixed(1);
           const formattedFlour = flourString.replace(/\.0$/, "");
